@@ -15,7 +15,9 @@ const MovieCard = ({movie}) => {
                       <p className="text-[#575A6E] text-sm mb-2">
                         {movie.genre}
                       </p>
-                     <Rating />
+                     <div className='flex items-center space-x-1 mb-5'>
+                     <Rating value={movie.rating}/>
+                     </div>
                       <a
                         className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
                         href="#"
