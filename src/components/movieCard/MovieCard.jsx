@@ -1,7 +1,5 @@
 import React from 'react';
-import MovieImage from '../../assets/images/movie-1.png'
-import Tag from '../../assets/icons/tag.svg'
-import Rating from '../rating/Rating';
+
 
 const MovieCard = () => {
     return (
