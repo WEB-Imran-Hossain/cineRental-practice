@@ -1,4 +1,5 @@
 import React from "react";
+import { getImgUrl } from "../../utils/Cine-Utility";
 
 const MovieDetailsModal = ({ movie, onClose }) => {
   return (
@@ -9,7 +10,7 @@ const MovieDetailsModal = ({ movie, onClose }) => {
           <div className="bg-white shadow-md dark:bg-[#12141D] rounded-2xl sm:grid sm:grid-cols-[2fr_1fr] overflow-hidden">
             <img
               className="sm:order-2 w-full object-cover h-full max-sm:max-h-[300px]"
-              src="./assets/movie-1.png"
+              src={getImgUrl(movie.cover)}
               alt=""
             />
             <div className="p-5 lg:p-11">
@@ -36,6 +37,7 @@ const MovieDetailsModal = ({ movie, onClose }) => {
                 <a
                   className="border border-[#74766F] rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#6F6F6F] dark:text-gray-200 font-semibold text-sm"
                   href="#"
+                  onClick={onClose}
                 >
                   Cancel
                 </a>
