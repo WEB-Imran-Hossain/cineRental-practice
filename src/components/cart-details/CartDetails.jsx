@@ -31,7 +31,7 @@ setCartData([...filteredItem])
 
               {
                 cartData.length === 0 ?
-                (<p className="center">The cart is empty</p>):
+                (<p className="center text-3xl">The cart is empty</p>):
               (cartData.map((item) => (
                 <div key={item.id} className="grid grid-cols-[1fr_auto] gap-4">
                   <div className="flex items-center gap-4">
