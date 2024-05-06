@@ -6,16 +6,22 @@ import Delete from '../../assets/icons/delete.svg'
 import Checkout from '../../assets/icons/checkout.svg'
 
 const CartDetails = ({ onClose }) => {
-  const { cartData, setCartData } = useContext(MovieContext);
-  console.log(cartData);
+  const { state, dispatch } = useContext(MovieContext);
+  console.log(state.cartData);
 
-function handleDeleteCart (event, itemId){
+function handleDeleteCart (event, item){
 event.preventDefault()
 
-const filteredItem=cartData.filter((item)=>{
-  return item.id !== itemId
+// const filteredItem=cartData.filter((item)=>{
+//   return item.id !== itemId
+// })
+// setCartData([...filteredItem]) // no use when using dispatch
+dispatch({
+  type: "REMOVE_FROM_CART",
+  payload: item
 })
-setCartData([...filteredItem])
+
+
 }
 
   return (
@@ -30,9 +36,9 @@ setCartData([...filteredItem])
             <div className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14">
 
               {
-                cartData.length === 0 ?
+                state.cartData.length === 0 ?
                 (<p className="center text-3xl">The cart is empty</p>):
-              (cartData.map((item) => (
+              (state.cartData.map((item) => (
                 <div key={item.id} className="grid grid-cols-[1fr_auto] gap-4">
                   <div className="flex items-center gap-4">
                     <img
@@ -52,7 +58,7 @@ setCartData([...filteredItem])
                   </div>
                   <div className="flex justify-between gap-4 items-center">
                     <button className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white"
-                    onClick={()=>handleDeleteCart(event, item.id)}>
+                    onClick={()=>handleDeleteCart(event, item)}>
                       <img
                         className="w-5 h-5"
                         src={Delete}
