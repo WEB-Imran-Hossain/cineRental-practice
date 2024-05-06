@@ -1,6 +1,7 @@
 import React from "react";
 import { getImgUrl } from "../../utils/Cine-Utility";
 
+
 const MovieDetailsModal = ({ movie, onClose, onCartAdd }) => {
   return (
     <>
